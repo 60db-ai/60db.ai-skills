@@ -26,7 +26,7 @@ Text-to-speech, speech-to-text, voice cloning, voice management, and the LLM cor
 
 <br>
 
-[How It Works](#how-it-works) · [Commands](#commands) · [Gotchas](#gotchas-that-bite-everyone) · [Quick Start](#quick-start) · [References](skills/60db/references/) · [FAQ](#faq)
+[How It Works](#how-it-works) · [Commands](#commands) · [Quick Start](#quick-start) · [Examples](#examples) · [Guide](GUIDE.md) · [FAQ](#faq)
 
 </div>
 
@@ -226,6 +226,84 @@ Store defaults once so you stop repeating flags:
 ```bash
 python3 $E init --no-key --voice <id> --model 60db-quality --sample-rate 48000
 ```
+
+---
+
+## Examples
+
+Concrete, copy-paste runs with the output you should expect. (`$E=skills/60db/scripts/sixtydb.py`; replace `<id>` with a real `voice_id` from `voices`.) The full cookbook — long-form chunking, subtitles, a voice-agent turn — is in **[GUIDE.md](GUIDE.md)**.
+
+**1 — Voice over a line of text**
+
+```bash
+python3 $E tts "Welcome to the show." --voice <id> --out out/intro.wav
+# wrote out/intro.wav  (412160 B PCM, ~4.3s @ 48000Hz, REST, model=60db-quality, enhance=True)
+```
+
+**2 — Narrate a script file, slower and softer**
+
+```bash
+python3 $E tts episode.txt --voice <id> --out out/ep.wav --speed 0.95 --stability 65
+```
+
+**3 — Transcribe a call with speakers + word timings**
+
+```bash
+python3 $E stt interview.m4a --diarize --timestamps --out interview.txt
+# [English, 42.7s] So the first thing we noticed was the latency...
+# wrote transcript -> interview.txt
+```
+
+**4 — Full structured transcript as JSON (for subtitles)**
+
+```bash
+python3 $E stt talk.mp4 --timestamps --confidence --json > talk.json
+# talk.json → words[] each with {word, start, end} → build SRT/VTT
+```
+
+**5 — List the voices you can use**
+
+```bash
+python3 $E voices
+# your cloned voices (3):
+#   fbb75ed2-975a-40c7-9e06-38e30524a9a1  Zara   [Hindi  female]
+#   7c1a9e02-...                          Arjun  [Hindi  male]
+```
+
+**6 — The LLM core for a voice agent (with memory)**
+
+```bash
+python3 $E chat "What's a good greeting?" --system "You are a terse receptionist."
+# A short, warm hello works best: "Hi, thanks for calling — how can I help?"
+# [chat_id=chat_a1b2c3  (pass --chat-id to continue)]
+
+python3 $E chat "Make it shorter." --chat-id chat_a1b2c3
+```
+
+**7 — One voice-agent turn: ears → brain → mouth**
+
+```bash
+USER=$(python3 $E stt caller.wav --json | python3 -c 'import json,sys;print(json.load(sys.stdin)["text"])')
+REPLY=$(python3 $E chat "$USER" --system "Concise support agent." --chat-id call-42 | head -1)
+python3 $E tts "$REPLY" --voice <id> --out out/reply.wav
+# afplay out/reply.wav   (macOS)   |   aplay out/reply.wav   (Linux)
+```
+
+**8 — Diagnose setup**
+
+```bash
+python3 $E doctor
+# 60db doctor
+#   api key        present (config)
+#   model          60db-quality
+#   sample_rate    48000 Hz
+```
+
+---
+
+## Guide
+
+**[GUIDE.md](GUIDE.md)** is the in-depth manual: install, auth & security, config precedence, the mental model (NDJSON, PCM→WAV, the ~8 kHz fidelity ceiling), every command with parameters and sample output, a recipe cookbook (long-form narration over the 5000-char cap, subtitles, voice-agent loop, batch, multilingual), and an error reference.
 
 ---
 
