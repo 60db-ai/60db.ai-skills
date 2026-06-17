@@ -1,6 +1,6 @@
 <div align="center">
 
-# 60db
+# 60db.ai
 
 **Drop [60db.ai](https://60db.ai) voice into [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [OpenAI Codex](https://developers.openai.com/codex), [OpenCode](https://opencode.ai), or any agent with a skills directory.**
 
