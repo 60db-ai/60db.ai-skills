@@ -1,0 +1,22 @@
+# Never commit secrets or generated audio
+config.json
+*.env
+.env
+.env.*
+
+# Generated audio / transcripts
+out/
+*.wav
+*.mp3
+*.pcm
+transcript.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+*.swp
