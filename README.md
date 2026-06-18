@@ -10,7 +10,7 @@ Text-to-speech, speech-to-text, voice cloning, voice management, and the LLM cor
 [![Codex](https://img.shields.io/badge/Codex-Skill-green?logo=openai&logoColor=white)](https://developers.openai.com/codex)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Skill-purple)](https://opencode.ai)
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/60db-ai/60db.ai-skills/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 
 [![Powered by 60db.ai](https://img.shields.io/badge/Powered_by-60db.ai-ff5a5f)](https://60db.ai)
 [![Follow @60dbai](https://img.shields.io/badge/Follow-@60dbai-000000?style=flat&logo=x&logoColor=white)](https://x.com/60dbai)
@@ -406,7 +406,7 @@ Contributions welcome — especially confirming the **doc-only** endpoints (`clo
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Not affiliated with 60db.ai.
+Apache-2.0 — see [LICENSE](LICENSE).
 
 ---
 
