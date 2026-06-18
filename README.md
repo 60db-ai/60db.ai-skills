@@ -9,7 +9,7 @@ Text-to-speech, speech-to-text, voice cloning, voice management, and the LLM cor
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blue?logo=anthropic&logoColor=white)](https://docs.anthropic.com/en/docs/claude-code)
 [![Codex](https://img.shields.io/badge/Codex-Skill-green?logo=openai&logoColor=white)](https://developers.openai.com/codex)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Skill-purple)](https://opencode.ai)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/uditgoenka/60db/releases)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/60db-ai/60db.ai-skills/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [![Powered by 60db.ai](https://img.shields.io/badge/Powered_by-60db.ai-ff5a5f)](https://60db.ai)
@@ -155,7 +155,7 @@ Full list in [references/troubleshooting.md](skills/60db/references/troubleshoot
 **Option A — npx install (recommended):**
 
 ```bash
-npx skills add uditgoenka/60db
+npx skills add 60db-ai/60db.ai-skills
 ```
 
 Installs both the `60db` and `setup-60db` skills. **Restart your agent session** so they load, then run `/setup-60db`.
@@ -163,8 +163,8 @@ Installs both the `60db` and `setup-60db` skills. **Restart your agent session**
 **Option B — Guided installer:**
 
 ```bash
-git clone https://github.com/uditgoenka/60db.git
-cd 60db
+git clone https://github.com/60db-ai/60db.ai-skills.git
+cd 60db.ai-skills
 ./install.sh                 # symlinks both skills into ~/.claude/skills (--copy to copy instead)
 ```
 
@@ -173,11 +173,11 @@ Install elsewhere with `CLAUDE_SKILLS_DIR=~/.codex/skills ./install.sh`.
 **Option C — Manual copy:**
 
 ```bash
-git clone https://github.com/uditgoenka/60db.git
+git clone https://github.com/60db-ai/60db.ai-skills.git
 
 # Claude Code
-cp -r 60db/skills/60db        ~/.claude/skills/60db
-cp -r 60db/skills/setup-60db  ~/.claude/skills/setup-60db
+cp -r 60db.ai-skills/skills/60db        ~/.claude/skills/60db
+cp -r 60db.ai-skills/skills/setup-60db  ~/.claude/skills/setup-60db
 ```
 
 > **Note:** Start a **new** session after installing — skills are only picked up on session start. This is an agent-platform limitation, not a bug.
@@ -187,8 +187,8 @@ cp -r 60db/skills/setup-60db  ~/.claude/skills/setup-60db
 Copy the same two skill folders into that agent's skills directory:
 
 ```bash
-git clone https://github.com/uditgoenka/60db.git
-cp -r 60db/skills/60db 60db/skills/setup-60db  ~/.codex/skills/          # Codex
+git clone https://github.com/60db-ai/60db.ai-skills.git
+cp -r 60db.ai-skills/skills/60db 60db.ai-skills/skills/setup-60db  ~/.codex/skills/   # Codex
 # or use:  CLAUDE_SKILLS_DIR=~/.config/opencode/skills ./install.sh      # OpenCode
 ```
 
@@ -358,7 +358,7 @@ See [`skills/60db/references/`](skills/60db/references/) for the full, sourced A
 ## FAQ
 
 **Q: How do I install it the fastest way?**
-A: `npx skills add uditgoenka/60db`, then restart your agent and run `/setup-60db`.
+A: `npx skills add 60db-ai/60db.ai-skills`, then restart your agent and run `/setup-60db`.
 
 **Q: Where does my API key go? Is it safe?**
 A: Into a local config at `${XDG_CONFIG_HOME:-~/.config}/60db/config.json` (mode 600), or the `SIXTYDB_API_KEY` env var. It's never passed on the command line, never printed, and `.gitignore` keeps it out of git. The agent never types it for you.
@@ -394,11 +394,11 @@ Contributions welcome — especially confirming the **doc-only** endpoints (`clo
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=uditgoenka%2F60db&type=timeline&legend=top-left">
+<a href="https://www.star-history.com/?repos=60db-ai%2F60db.ai-skills&type=timeline&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=uditgoenka/60db&type=timeline&theme=dark&legend=bottom-right" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=uditgoenka/60db&type=timeline&legend=bottom-right" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=uditgoenka/60db&type=timeline&legend=bottom-right" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=60db-ai/60db.ai-skills&type=timeline&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=60db-ai/60db.ai-skills&type=timeline&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=60db-ai/60db.ai-skills&type=timeline&legend=bottom-right" />
  </picture>
 </a>
 

@@ -29,11 +29,11 @@ E=skills/60db/scripts/sixtydb.py
 
 ```bash
 # Recommended — installs the 60db + setup-60db skills
-npx skills add uditgoenka/60db
+npx skills add 60db-ai/60db.ai-skills
 
 # Or clone + run the installer (symlink by default; --copy to copy)
-git clone https://github.com/uditgoenka/60db.git
-cd 60db && ./install.sh
+git clone https://github.com/60db-ai/60db.ai-skills.git
+cd 60db.ai-skills && ./install.sh
 ```
 
 Install into another agent's skills dir:
